@@ -1,5 +1,8 @@
 # Opération NordCloud — Livret d'équipe (Jour 4)
 
+> **Équipe : Tartampion** — Farid · Valentin · Dylan · Sylvain
+> **Codes trouvés : Salle 1 → `12435` · Salle 2 → `312`**
+
 Escape Game **Cloud & Sécurité** — Ynov Campus.
 
 NordCloud est une jeune entreprise e-commerce dont l'infrastructure a été montée dans
