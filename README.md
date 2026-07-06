@@ -161,15 +161,17 @@ terraform apply
 
 ## Salle 5 — L'Audit final : finalisation et dépôt
 
+**Équipe : Tartampion** — Farid, Valentin, Dylan, Sylvain.
+
 **Grille de progression**
 
-| Salle | Code trouvé | Indices utilisés |
-|-------|-------------|:----------------:|
-| 1 — Audit des coûts | `12435` | 0 |
-| 2 — Conformité | `312` | 0 |
-| 3 — Coffre (mission) | — | 0 |
-| 4 — La Forge (projet) | — | 0 |
-| 5 — Audit final | — | 0 |
+| Salle | Code trouvé | Temps pris | Indices utilisés |
+|-------|-------------|:----------:|:----------------:|
+| 1 — Audit des coûts | `12435` | ~25 min | 0 |
+| 2 — Conformité | `312` | ~20 min | 0 |
+| 3 — Coffre (mission) | — | ~15 min | 0 |
+| 4 — La Forge (projet) | — | ~1h30 | 0 |
+| 5 — Audit final | — | ~30 min | 0 |
 
 **Rendu**
 - Architecture 3-tiers décrite en Terraform (`terraform/`), modulaire et validée.
