@@ -70,3 +70,16 @@ Modèle de responsabilité partagée : `Client (1)` = utilisateur du cloud,
 | Gestion des comptes utilisateurs (IAM) | Client (1) |
 | Chiffrement des données au repos (activation) | Client (1) |
 | Infrastructure réseau globale (backbone) | Fournisseur (2) |
+
+---
+
+## Salle 3 — Le Coffre : ouverture du dossier de mission
+
+Les codes `12435` et `312` sont vérifiés (format et cohérence). Le coffre s'ouvre et
+révèle le **dossier de mission** : reconstruire une architecture 3-tiers pour NordCloud,
+décrite en Infrastructure as Code (Terraform), sécurisée et conforme.
+
+**Les 3 tiers**
+- **Présentation** — interface accessible, seul tier exposé à Internet.
+- **Application** — instances exécutant la logique métier, réseau privé.
+- **Données** — base isolée, accès restreint, volume chiffré.
