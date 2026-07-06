@@ -156,3 +156,23 @@ terraform init
 terraform plan
 terraform apply
 ```
+
+---
+
+## Salle 5 — L'Audit final : finalisation et dépôt
+
+**Grille de progression**
+
+| Salle | Code trouvé | Indices utilisés |
+|-------|-------------|:----------------:|
+| 1 — Audit des coûts | `12435` | 0 |
+| 2 — Conformité | `312` | 0 |
+| 3 — Coffre (mission) | — | 0 |
+| 4 — La Forge (projet) | — | 0 |
+| 5 — Audit final | — | 0 |
+
+**Rendu**
+- Architecture 3-tiers décrite en Terraform (`terraform/`), modulaire et validée.
+- Sécurité : Security Groups en couches, IAM par tier, chiffrement au repos.
+- Conformité RGPD / ISO 27017 / SecNumCloud et leviers de coûts appliqués.
+- Codes des salles et raisonnements documentés dans ce README.
