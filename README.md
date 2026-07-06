@@ -83,3 +83,76 @@ décrite en Infrastructure as Code (Terraform), sécurisée et conforme.
 - **Présentation** — interface accessible, seul tier exposé à Internet.
 - **Application** — instances exécutant la logique métier, réseau privé.
 - **Données** — base isolée, accès restreint, volume chiffré.
+
+---
+
+## Salle 4 — La Forge : reconstruction de l'architecture
+
+L'architecture est décrite en Terraform (dossier `terraform/`, modulaire).
+
+### Schéma des flux réseau
+
+```
+        Internet
+           │ 443
+           ▼
+  ┌──────────────────┐
+  │   PRÉSENTATION   │  IP publique — SG : 443 monde, 22 admin
+  └──────────────────┘
+           │ 8080
+           ▼
+  ┌──────────────────┐
+  │   APPLICATION    │  privé — SG : 8080 depuis présentation, 22 admin
+  └──────────────────┘
+           │ 5432
+           ▼
+  ┌──────────────────┐
+  │     DONNÉES      │  privé, volume chiffré — SG : 5432 depuis application
+  └──────────────────┘
+```
+
+### Security Groups en couches
+
+| Tier | Entrant autorisé | Source |
+|------|------------------|--------|
+| Présentation | 443 (HTTPS) | Internet |
+| Présentation | 22 (SSH) | CIDR admin uniquement |
+| Application | 8080 | Security Group présentation |
+| Application | 22 (SSH) | CIDR admin uniquement |
+| Données | 5432 (PostgreSQL) | Security Group application |
+| Données | 22 (SSH) | CIDR admin uniquement |
+
+Le tier données n'accepte **que** l'application : il n'est jamais joignable depuis
+Internet ni depuis la présentation.
+
+### Sécurité appliquée
+
+- **IAM à privilège minimal** : un utilisateur de service par tier.
+- **Chiffrement au repos** : le volume de données utilise un type de volume chiffré.
+- **Segmentation réseau** : chaque tier dans son sous-réseau, seul le tier présentation
+  a une IP publique.
+- **Aucun secret dans le code** : identifiants injectés par variables d'environnement.
+
+### Optimisation des coûts (écho Salle 1)
+
+- **Rightsizing** : gabarits adaptés à chaque tier (petit pour la présentation).
+- **Tags** : toutes les ressources portent `project` / `environment` / `owner`.
+- **Scalabilité horizontale** : le nombre d'instances applicatives est paramétrable.
+
+### Conformité (écho Salle 2)
+
+| Référentiel | Application au projet |
+|-------------|-----------------------|
+| RGPD | Déploiement en région UE, données personnelles isolées et chiffrées |
+| ISO 27017 | Segmentation réseau, IAM par tier, chiffrement des volumes |
+| SecNumCloud | Hébergement OVHcloud (offre qualifiable), pas de dépendance extra-UE |
+
+### Déploiement
+
+```bash
+cd terraform
+# charger les identifiants OVHcloud (fichier openrc) puis :
+terraform init
+terraform plan
+terraform apply
+```
