@@ -15,6 +15,7 @@ dossier de mission (architecture 3-tiers décrite en Terraform).
 | Salle | Chapitre | Code |
 |:-----:|----------|:----:|
 | 1 | L'Audit des coûts (FinOps) | `12435` |
+| 2 | La Chambre de conformité | `312` |
 
 ---
 
@@ -39,3 +40,33 @@ l'ordre du tableau. Le code est la suite des 5 numéros.
 | 5 | `srv-web-prod-ok` | Bien dimensionné, taggé, charge cohérente | **5** |
 
 ### ✅ Code Salle 1 : `12435`
+
+---
+
+## Salle 2 — La Chambre de conformité
+
+### Énigme B (obligatoire) — Associer chaque référentiel à sa définition
+
+| Description | Référentiel | N° |
+|-------------|-------------|:--:|
+| (i) Qualification ANSSI, immunité aux lois extraterritoriales non-UE | SecNumCloud | **3** |
+| (ii) Réglementation européenne des données personnelles | RGPD | **1** |
+| (iii) Norme internationale de sécurité de l'info, spécifique cloud | ISO 27017 | **2** |
+
+Suite des numéros dans l'ordre (i), (ii), (iii).
+
+### ✅ Code Salle 2 : `312`
+
+### Énigme A (bonus) — Qui est responsable de quoi ?
+
+Modèle de responsabilité partagée : `Client (1)` = utilisateur du cloud,
+`Fournisseur (2)` = OVHcloud.
+
+| Responsabilité | Responsable |
+|----------------|:-----------:|
+| Sécurité physique des datacenters | Fournisseur (2) |
+| Configuration des Security Groups | Client (1) |
+| Virtualisation et hyperviseur | Fournisseur (2) |
+| Gestion des comptes utilisateurs (IAM) | Client (1) |
+| Chiffrement des données au repos (activation) | Client (1) |
+| Infrastructure réseau globale (backbone) | Fournisseur (2) |
