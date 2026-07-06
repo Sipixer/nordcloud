@@ -167,11 +167,11 @@ terraform apply
 
 | Salle | Code trouvé | Temps pris | Indices utilisés |
 |-------|-------------|:----------:|:----------------:|
-| 1 — Audit des coûts | `12435` | ~25 min | 0 |
-| 2 — Conformité | `312` | ~20 min | 0 |
-| 3 — Coffre (mission) | — | ~15 min | 0 |
-| 4 — La Forge (projet) | — | ~1h30 | 0 |
-| 5 — Audit final | — | ~30 min | 0 |
+| 1 — Audit des coûts | `12435` | ~15 min | 0 |
+| 2 — Conformité | `312` | ~10 min | 0 |
+| 3 — Coffre (mission) | — | ~10 min | 0 |
+| 4 — La Forge (projet) | — | ~1h | 0 |
+| 5 — Audit final | — | ~20 min | 0 |
 
 **Rendu**
 - Architecture 3-tiers décrite en Terraform (`terraform/`), modulaire et validée.
